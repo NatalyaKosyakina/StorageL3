@@ -13,10 +13,11 @@ namespace StorageL3.Abstractions
 
         /*Метод для размещения продукта на складе. 
          * Принимает int productID - что размещаем, int storageID - где размещаем. */
-        public void PutInStorage(int productID, int storageID);
+        public void PutInStorage(int productID, int count, int storageID);
 
         /*Метода для удаления продукта со склада. 
          * Принимает int productID - что удаляем, int storageID - откуда удаляем. */
-        public void DeleteInStorage(int productID, int storageID);
+        public void GetFromStorage(int productID, int count, int storageID);
+
     }
 }

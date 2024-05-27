@@ -9,15 +9,15 @@ namespace StorageL3.db
         public DbSet<ProductStorage> productStorages { get; set; }
         private string _connectionString = "Host=localhost;Username=postgres;Password=example;Database=StorageL3";
 
-        //public StorageContext(string connectionString)
-        //{
-        //    _connectionString = connectionString;
-        //}
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public StorageContext(string connectionString)
         {
-            optionsBuilder.UseLazyLoadingProxies().UseNpgsql(_connectionString);
+            _connectionString = connectionString;
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseLazyLoadingProxies().UseNpgsql(_connectionString);
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
