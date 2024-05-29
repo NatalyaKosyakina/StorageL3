@@ -7,7 +7,7 @@ namespace StorageL3.db
     {
         public DbSet<Storage> Storages { get; set; }
         public DbSet<ProductStorage> productStorages { get; set; }
-        private string _connectionString = "Host=localhost;Username=postgres;Password=example;Database=StorageL3";
+        private string _connectionString;
 
         public StorageContext(string connectionString)
         {

@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using StorageL3.Abstractions;
+﻿using StorageL3.Abstractions;
 using StorageL3.db;
 using StorageL3.Models;
-using System.Security.Cryptography.X509Certificates;
 
 namespace StorageL3.Repo
 {
@@ -92,7 +90,6 @@ namespace StorageL3.Repo
                 _context.SaveChanges();
             }
         }
-
-        
+    
     }
 }
