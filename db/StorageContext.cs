@@ -14,10 +14,10 @@ namespace StorageL3.db
             _connectionString = connectionString;
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseLazyLoadingProxies().UseNpgsql(_connectionString);
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies().UseNpgsql(_connectionString);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

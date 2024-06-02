@@ -4,6 +4,8 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using StorageL3.Abstractions;
 using StorageL3.db;
+using StorageL3.GraphQLServices.Mutations;
+using StorageL3.GraphQLServices.Queries;
 using StorageL3.Repo;
 
 namespace StorageL3
@@ -19,10 +21,11 @@ namespace StorageL3
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddControllers();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddControllers();
             builder.Services.AddAutoMapper(typeof(MappingProfile));
+            builder.Services.AddGraphQLServer().AddQueryType<StorageQuery>().AddMutationType<Mutation>();
 
             var config = new ConfigurationBuilder();
             config.AddJsonFile("appsettings.json");
@@ -38,14 +41,11 @@ namespace StorageL3
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            app.UseSwagger();
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
-           // app.MapGraphQL();
+            //app.MapGraphQL();
 
             app.Run();
         }

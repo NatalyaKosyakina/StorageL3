@@ -1,4 +1,5 @@
-﻿using StorageL3.Models;
+﻿using StorageL3.DTO;
+using StorageL3.Models;
 
 namespace StorageL3.Abstractions
 {
@@ -6,7 +7,7 @@ namespace StorageL3.Abstractions
     {
         /*Метод создания склада. 
          * Принимает название склада. Возвращает номер склада*/
-        public int CreateStorage(string storageName);
+        public int CreateStorage(StorageDto storageDto);
 
         /*Метод удаления склада*/
         public void DeleteStorage(int storageID);
@@ -18,6 +19,9 @@ namespace StorageL3.Abstractions
         /*Метода для удаления продукта со склада. 
          * Принимает int productID - что удаляем, int storageID - откуда удаляем. */
         public void GetFromStorage(int productID, int count, int storageID);
+
+        /*Метод для вывода списка складов.*/
+        public List<Storage> ShowStorages();
 
     }
 }
